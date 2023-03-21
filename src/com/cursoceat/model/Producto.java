@@ -1,7 +1,5 @@
 package com.cursoceat.model;
 
-import java.net.URL;
-
 public class Producto {
 
 	public static int idProducto;
@@ -37,12 +35,12 @@ public class Producto {
 	}
 
 	public void aumentarStock(int cantidad) {
-		this.stock -= cantidad;
+		this.stock += cantidad;
 
 	}
 
 	public void restarStock(int cantidad) {
-		this.stock += cantidad;
+		this.stock -= cantidad;
 	}
 
 	// ***************************************************
