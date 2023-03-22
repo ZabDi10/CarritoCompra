@@ -97,10 +97,11 @@ public class Pedido implements CalculoIva {
 	public void setPrecioProducto(double precioProducto) {
 
 		if (this.cantidadProducto >= 5) {
-			this.precioProducto = precioProducto * 0.92;
+			this.precioProducto = precioProducto * 0.90;
 		} else {
 			this.precioProducto = precioProducto;
 		}
+		//this.precioProducto=Math.round(this.precioProducto);
 	}
 
 	public double getTotalSinIva() {
