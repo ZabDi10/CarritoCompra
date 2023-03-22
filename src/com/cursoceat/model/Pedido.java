@@ -27,10 +27,11 @@ public class Pedido implements CalculoIva {
 
 	@Override
 	public String toString() {
-		DateTimeFormatter formato=DateTimeFormatter.ofPattern("'Fecha: 'dd-MM-yyyy 'Hora: 'hh:mm:ss");
-		return "Pedido [Nº Pedido = " + idLocal + ", Fecha:Hora = (" + fechaHoraPedido.format(formato) + "), idProducto = " + idProducto
-				+ ", Nº Cliente = " + idCliente + ", IVA = " + ivaPaisCliente + ", Cantidad = " + cantidadProducto
-				+ ", Precio = " + precioProducto + ", totalSinIva = " + totalSinIva + ", totalPedido = " + totalPedido + "]";
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("'Fecha: 'dd-MM-yyyy 'Hora: 'hh:mm:ss");
+		return "Pedido [Nº Pedido = " + idLocal + ", Fecha:Hora = (" + fechaHoraPedido.format(formato)
+				+ "), idProducto = " + idProducto + ", Nº Cliente = " + idCliente + ", IVA = " + ivaPaisCliente
+				+ ", Cantidad = " + cantidadProducto + ", Precio = " + precioProducto + ", totalSinIva = " + totalSinIva
+				+ ", totalPedido = " + totalPedido + "]";
 	}
 
 	public int getIdCliente() {
@@ -94,7 +95,12 @@ public class Pedido implements CalculoIva {
 	}
 
 	public void setPrecioProducto(double precioProducto) {
-		this.precioProducto = precioProducto;
+
+		if (this.cantidadProducto >= 5) {
+			this.precioProducto = precioProducto * 0.92;
+		} else {
+			this.precioProducto = precioProducto;
+		}
 	}
 
 	public double getTotalSinIva() {
