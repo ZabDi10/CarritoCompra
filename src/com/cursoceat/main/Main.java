@@ -41,6 +41,22 @@ public class Main {
 		miPedido.setTotalPedido(miPedido.getTotalSinIva(), miPedido.getIvaPaisCliente());
 		
 		System.out.println(miPedido.toString());
+		System.out.println();
+		
+		
+		Cliente miCliente2 = new Cliente("Juan", "Portugues", "Calle Lisboa", "Lisboa", Pais.PORTUGAL, "567898544", "04589678E");
+		miPedido2.setIdCliente(miCliente2.getIdTemp());
+		miPedido2.setIvaPaisCliente(miCliente2.getPaisCliente().getPorcentaje());
+		
+		miPedido2.setIdProducto(miProducto2.getIdProductoTemp());
+		miPedido2.setCantidadProducto(3);
+		miPedido2.setPrecioProducto(miProducto2.getPrecioProducto());
+		
+		miPedido2.setTotalSinIva(miPedido2.getPrecioProducto(), miPedido2.getCantidadProducto());
+		miPedido2.setTotalPedido(miPedido2.getTotalSinIva(), miPedido2.getIvaPaisCliente());
+		
+		System.out.println(miPedido2.toString());
+		
 	}
 
 }

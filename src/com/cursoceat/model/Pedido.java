@@ -1,6 +1,9 @@
 package com.cursoceat.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 
 public class Pedido implements CalculoIva {
 
@@ -24,9 +27,10 @@ public class Pedido implements CalculoIva {
 
 	@Override
 	public String toString() {
-		return "Pedido [Nº Pedido=" + idLocal + ", Fecha:Hora=" + fechaHoraPedido + ", idProducto=" + idProducto
-				+ ", Nº Cliente=" + idCliente + ", IVA=" + ivaPaisCliente + ", Cantidad=" + cantidadProducto
-				+ ", Precio=" + precioProducto + ", totalSinIva=" + totalSinIva + ", totalPedido=" + totalPedido + "]";
+		DateTimeFormatter formato=DateTimeFormatter.ofPattern("'Fecha: 'dd-MM-yyyy 'Hora: 'hh:mm:ss");
+		return "Pedido [Nº Pedido = " + idLocal + ", Fecha:Hora = (" + fechaHoraPedido.format(formato) + "), idProducto = " + idProducto
+				+ ", Nº Cliente = " + idCliente + ", IVA = " + ivaPaisCliente + ", Cantidad = " + cantidadProducto
+				+ ", Precio = " + precioProducto + ", totalSinIva = " + totalSinIva + ", totalPedido = " + totalPedido + "]";
 	}
 
 	public int getIdCliente() {
